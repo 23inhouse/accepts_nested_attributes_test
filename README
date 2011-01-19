@@ -1,0 +1,29 @@
+There is a bug introduced from Rails 3.0.0 -> 3.0.1
+
+It changes the way new models are saved when their class has "accepts_nested_attributes_for" set and one of the associations is not a new record. 
+
+
+ActiveRecord::RecordNotFound: Couldn't find Account with ID=1 for Customer with ID=
+/...../activerecord-3.0.1/lib/active_record/nested_attributes.rb:413:in `raise_nested_attributes_record_not_found'
+
+Here is a github project, that has the error.
+
+https://github.com/23inhouse/accepts_nested_attributes_test.git
+git://github.com/23inhouse/accepts_nested_attributes_test.git
+
+You can clone the project.
+
+bundle install
+rake db:migrate
+rake test:functional
+
+then edit the Gemfile and change:
+
+# gem 'rails', '3.0.1' # fails
+
+to this
+
+gem 'rails', '3.0.0' # passes
+
+bundle update
+rake test:functional
