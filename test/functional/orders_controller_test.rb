@@ -22,7 +22,11 @@ class OrdersControllerTest < ActionController::TestCase
           }
         }
       }
-    post :create, params
-    assert_response :redirect_to
+      
+    assert_difference('Order.count') do
+      post :create, params
+    end
+    
+    assert_redirected_to new_order_path
   end
 end

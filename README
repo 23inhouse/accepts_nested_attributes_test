@@ -6,6 +6,9 @@ It changes the way new models are saved when their class has "accepts_nested_att
 ActiveRecord::RecordNotFound: Couldn't find Account with ID=1 for Customer with ID=
 /...../activerecord-3.0.1/lib/active_record/nested_attributes.rb:413:in `raise_nested_attributes_record_not_found'
 
+Here is the ticket: https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/6314-accepts_nested_attributes_for
+
+
 Here is a github project, that has the error.
 
 https://github.com/23inhouse/accepts_nested_attributes_test.git
